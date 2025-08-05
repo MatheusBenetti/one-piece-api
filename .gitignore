@@ -1,0 +1,51 @@
+# Go build outputs
+/bin/
+/build/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace files
+*.log
+*.tmp
+*.cache
+*.prof
+*.cover
+
+# Go modules
+vendor/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Docker
+docker-compose.override.yml
+
+# GitHub Actions secrets or artifacts (not usually present but safe to ignore)
+*.secret
+*.token
+
+# DBeaver configs (only if stored with the project, usually not)
+.dbeaver/
+
+# Ignore PostgreSQL dump files or data directories if present
+*.sql
+*.dump
+pgdata/
+
