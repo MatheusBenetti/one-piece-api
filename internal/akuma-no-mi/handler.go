@@ -97,7 +97,7 @@ func (h *AkumaNoMiHandler) GetAllAkumaNoMi(c *gin.Context) {
 	var responses []AkumaNoMiResponse
 	for _, akumaNoMi := range fruits {
 		responses = append(responses, AkumaNoMiResponse{
-			ID:          uint(akumaNoMi.ID),
+			ID:          akumaNoMi.ID,
 			Name:        akumaNoMi.Name,
 			Model:       akumaNoMi.Model,
 			Meaning:     akumaNoMi.Meaning,
