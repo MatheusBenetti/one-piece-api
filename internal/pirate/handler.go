@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 )
 
 type PirateHandler struct {
@@ -16,8 +17,18 @@ func NewHandler(service *PirateService) *PirateHandler {
 }
 
 func (h *PirateHandler) AddPirate(c *gin.Context) {
+	logrus.WithFields(logrus.Fields{
+		"endpoint": "AddPirate",
+		"method":   "POST",
+	}).Info("Starting to create a pirate")
+
 	var req CreatePirateRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
+		logrus.WithFields(logrus.Fields{
+			"error":   err.Error(),
+			"request": req,
+		}).Error("Error validating data")
+
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -37,6 +48,10 @@ func (h *PirateHandler) AddPirate(c *gin.Context) {
 		Bounty:      pirate.Bounty,
 		Rank:        pirate.Rank,
 	}
+
+	logrus.WithFields(logrus.Fields{
+		"pirate_name": req.Name,
+	}).Info("Pirata created")
 
 	c.JSON(http.StatusCreated, response)
 }
