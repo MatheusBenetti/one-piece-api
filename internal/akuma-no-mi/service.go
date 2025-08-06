@@ -4,7 +4,7 @@ type AkumaNoMiService struct {
 	repository AkumaNoMiRepository
 }
 
-func newService(repository AkumaNoMiRepository) *AkumaNoMiService {
+func NewService(repository AkumaNoMiRepository) *AkumaNoMiService {
 	return &AkumaNoMiService{repository: repository}
 }
 
