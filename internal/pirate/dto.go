@@ -1,24 +1,20 @@
 package pirate
 
-import akumanomi "github.com/MatheusBenetti/one-piece-api/internal/akuma-no-mi"
-
 type CreatePirateRequest struct {
-	Name        string
-	AkumaNoMiID *uint
-	AkumaNoMi   *akumanomi.AkumaNoMi
-	Age         int16
-	Weapon      []string
-	Bounty      float64
-	Rank        string
+	Name        string   `json:"name" binding:"required"`
+	AkumaNoMiID *uint    `json:"akuma_no_mi_id"`
+	Age         int16    `json:"age"`
+	Weapon      []string `json:"weapon"`
+	Bounty      float64  `json:"bounty"`
+	Rank        string   `json:"rank"`
 }
 
 type PirateResponse struct {
-	ID          uint
-	Name        string
-	AkumaNoMiID *uint
-	AkumaNoMi   *akumanomi.AkumaNoMi
-	Age         int16
-	Weapon      []string
-	Bounty      float64
-	Rank        string
+	ID          uint     `json:"id"`
+	Name        string   `json:"name"`
+	AkumaNoMiID *uint    `json:"akuma_no_mi_id"`
+	Age         int16    `json:"age"`
+	Weapon      []string `json:"weapon"`
+	Bounty      float64  `json:"bounty"`
+	Rank        string   `json:"rank"`
 }
