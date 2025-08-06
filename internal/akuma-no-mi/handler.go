@@ -45,12 +45,12 @@ func (h *AkumaNoMiHandler) FindByName(c *gin.Context) {
 
 	akumaNoMi, err := h.service.FindByName(name)
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid fruit"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "invalid fruit"})
 		return
 	}
 
 	response := AkumaNoMiResponse{
-		ID:          uint(akumaNoMi.ID),
+		ID:          akumaNoMi.ID,
 		Name:        akumaNoMi.Name,
 		Model:       akumaNoMi.Model,
 		Meaning:     akumaNoMi.Meaning,
@@ -71,12 +71,12 @@ func (h *AkumaNoMiHandler) FindById(c *gin.Context) {
 
 	akumaNoMi, err := h.service.FindById(uint(id))
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid fruit"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "invalid fruit"})
 		return
 	}
 
 	response := AkumaNoMiResponse{
-		ID:          uint(akumaNoMi.ID),
+		ID:          akumaNoMi.ID,
 		Name:        akumaNoMi.Name,
 		Model:       akumaNoMi.Model,
 		Meaning:     akumaNoMi.Meaning,

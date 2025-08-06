@@ -46,7 +46,7 @@ func (h *PirateHandler) FindByName(c *gin.Context) {
 
 	pirate, err := h.service.FindByName(name)
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid pirate name"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "invalid pirate name"})
 		return
 	}
 
@@ -73,7 +73,7 @@ func (h *PirateHandler) FindById(c *gin.Context) {
 
 	pirate, err := h.service.FindById(uint(id))
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid pirate"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "invalid pirate"})
 		return
 	}
 
