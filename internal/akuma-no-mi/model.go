@@ -1,9 +1,11 @@
 package akumanomi
 
+import "gorm.io/gorm"
+
 type AkumaNoMi struct {
-	ID          uint   `json:"id" gorm:"primaryKey"`
+	gorm.Model
 	Name        string `json:"name"`
-	Model       string `json:"model"`
+	Style       string `json:"style"`
 	Meaning     string `json:"meaning"`
 	Description string `json:"description"`
 	Sort        string `json:"sort"`

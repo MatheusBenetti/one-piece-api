@@ -22,7 +22,7 @@ func (h *AkumaNoMiHandler) AddAkumaNoMi(c *gin.Context) {
 		return
 	}
 
-	akumaNoMi, err := h.service.AddAkumaNoMi(req.Name, req.Model, req.Meaning, req.Description, req.Sort)
+	akumaNoMi, err := h.service.AddAkumaNoMi(req.Name, req.Style, req.Meaning, req.Description, req.Sort)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -31,7 +31,7 @@ func (h *AkumaNoMiHandler) AddAkumaNoMi(c *gin.Context) {
 	response := AkumaNoMiResponse{
 		ID:          uint(akumaNoMi.ID),
 		Name:        akumaNoMi.Name,
-		Model:       akumaNoMi.Model,
+		Style:       akumaNoMi.Style,
 		Meaning:     akumaNoMi.Meaning,
 		Description: akumaNoMi.Description,
 		Sort:        akumaNoMi.Sort,
@@ -52,7 +52,7 @@ func (h *AkumaNoMiHandler) FindByName(c *gin.Context) {
 	response := AkumaNoMiResponse{
 		ID:          akumaNoMi.ID,
 		Name:        akumaNoMi.Name,
-		Model:       akumaNoMi.Model,
+		Style:       akumaNoMi.Style,
 		Meaning:     akumaNoMi.Meaning,
 		Description: akumaNoMi.Description,
 		Sort:        akumaNoMi.Sort,
@@ -78,7 +78,7 @@ func (h *AkumaNoMiHandler) FindById(c *gin.Context) {
 	response := AkumaNoMiResponse{
 		ID:          akumaNoMi.ID,
 		Name:        akumaNoMi.Name,
-		Model:       akumaNoMi.Model,
+		Style:       akumaNoMi.Style,
 		Meaning:     akumaNoMi.Meaning,
 		Description: akumaNoMi.Description,
 		Sort:        akumaNoMi.Sort,
@@ -99,7 +99,7 @@ func (h *AkumaNoMiHandler) GetAllAkumaNoMi(c *gin.Context) {
 		responses = append(responses, AkumaNoMiResponse{
 			ID:          akumaNoMi.ID,
 			Name:        akumaNoMi.Name,
-			Model:       akumaNoMi.Model,
+			Style:       akumaNoMi.Style,
 			Meaning:     akumaNoMi.Meaning,
 			Description: akumaNoMi.Description,
 			Sort:        akumaNoMi.Sort,
