@@ -35,6 +35,10 @@ func Connect() {
 		log.Fatalf("Error getting connection: %v", err)
 	}
 
+	if err := MigrateAll(DB); err != nil {
+		log.Fatal("Error doing Auto Migration: ", err)
+	}
+
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
 	sqlDB.SetConnMaxLifetime(time.Hour)
