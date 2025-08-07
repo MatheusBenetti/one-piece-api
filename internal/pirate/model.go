@@ -1,11 +1,14 @@
 package pirate
 
-import akumanomi "github.com/MatheusBenetti/one-piece-api/internal/akuma-no-mi"
+import (
+	akumanomi "github.com/MatheusBenetti/one-piece-api/internal/akuma-no-mi"
+	"gorm.io/gorm"
+)
 
 // TODO: Check the missing fields that can be used as a Pirate tipo Haki, battles, events, Crew
 
 type Pirate struct {
-	ID          uint                 `json:"id" gorm:"primaryKey"`
+	gorm.Model
 	Name        string               `json:"name" gorm:"not null"`
 	AkumaNoMiID *uint                `json:"akuma_no_mi_id"`
 	AkumaNoMi   *akumanomi.AkumaNoMi `gorm:"foreignKey:AkumaNoMiID"`

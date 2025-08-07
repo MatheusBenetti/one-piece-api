@@ -3,7 +3,7 @@ package api
 import (
 	"log"
 
-	"github.com/MatheusBenetti/one-piece-api/pkg/database"
+	database "github.com/MatheusBenetti/one-piece-api/config"
 	"github.com/joho/godotenv"
 )
 

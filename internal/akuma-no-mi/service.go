@@ -8,10 +8,10 @@ func NewService(repository AkumaNoMiRepository) *AkumaNoMiService {
 	return &AkumaNoMiService{repository: repository}
 }
 
-func (s *AkumaNoMiService) AddAkumaNoMi(name, model, meaning, description, sort string) (*AkumaNoMi, error) {
+func (s *AkumaNoMiService) AddAkumaNoMi(name, style, meaning, description, sort string) (*AkumaNoMi, error) {
 	akumaNoMi := &AkumaNoMi{
 		Name:        name,
-		Model:       model,
+		Style:       style,
 		Meaning:     meaning,
 		Description: description,
 		Sort:        sort,

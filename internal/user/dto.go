@@ -1,0 +1,17 @@
+package user
+
+type RegisterUserDTO struct {
+	Username string `json:"username" binding:"required"`
+	Email    string `json:"email" binding:"required,email"`
+	Password string `json:"password" binding:"required,min=6"`
+}
+
+type LoginDTO struct {
+	Username string `json:"username" binding:"required"`
+	Password string `json:"password" binding:"required"`
+}
+
+type UserResponse struct {
+	Username string
+	Email    string
+}
