@@ -15,3 +15,21 @@ func (s *PirateHakiService) AssignHakiToPirate(pirateID, hakiID uint, level stri
 func (s *PirateHakiService) UpdateHakiLevel(pirateID, hakiID uint, newLevel string) error {
 	return s.repository.UpdateHakiLevel(pirateID, hakiID, newLevel)
 }
+
+func (s *PirateHakiService) GetHakisByPirateID(pirateID uint) ([]PirateHakiResponse, error) {
+	links, err := s.repository.GetHakisByPirateID(pirateID)
+	if err != nil {
+		return nil, err
+	}
+
+	out := make([]PirateHakiResponse, 0, len(links))
+	for _, ph := range links {
+		out = append(out, PirateHakiResponse{
+			HakiID:   ph.HakiID,
+			HakiName: ph.Haki.Name,
+			Level:    ph.Level,
+		})
+	}
+
+	return out, nil
+}
