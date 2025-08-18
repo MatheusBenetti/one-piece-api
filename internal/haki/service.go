@@ -8,7 +8,7 @@ func NewHakiService(repository *HakiRepository) *HakiService {
 	return &HakiService{repository: repository}
 }
 
-func (s *HakiService) Save(name string) (*Haki, error) {
+func (s *HakiService) CreateHaki(name string) (*Haki, error) {
 	haki := &Haki{Name: name}
 	if err := s.repository.Save(haki); err != nil {
 		return nil, err
